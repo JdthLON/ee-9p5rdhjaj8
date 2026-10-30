@@ -119,6 +119,22 @@
   footer .imprint .mail { color: var(--ink); white-space: nowrap; }
   footer .imprint .mail a { color: #1a5fb4; text-decoration: underline; }
 </style>
+<style>
+  @media screen {
+    html { overflow-y: auto; }
+    body { height: auto; min-height: 297mm; overflow: visible; margin: 0 auto; }
+  }
+</style>
+<script>
+  function fitToWindow() {
+    var z = Math.min(document.documentElement.clientWidth / 794, 2.2);
+    document.body.style.zoom = z;
+  }
+  addEventListener('DOMContentLoaded', fitToWindow);
+  addEventListener('resize', fitToWindow);
+  addEventListener('beforeprint', function () { document.body.style.zoom = ''; });
+  addEventListener('afterprint', fitToWindow);
+</script>
 </head>
 <body data-team="both">
 
