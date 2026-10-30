@@ -1,0 +1,271 @@
+<!doctype html>
+
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Female CEO Operating System, Expand Education</title>
+<style>
+  :root {
+    /* Colour tokens from the Expand Education design system (expand-system.css, v2, 3 September 2026). */
+    --accent: #3d8b8b;
+    --accent-dark: #2a6b6b;
+    --ground-page: #f8f9fc;
+    --ground-warm: #f1ece1;
+    --box-on-page: #ffffff;
+    --box-on-warm: #fbf9f4;
+    --border: #d8d2c4;
+    --text: #1a1a1a;
+    --text-muted: #5f5f5f;
+    --text-quiet: #666666;
+    /* The names the rules below used before, now pointing at the system. */
+    --ink: var(--text);
+    --muted: var(--text-muted);
+    --faint: var(--text-quiet);
+    --teal-text: var(--accent-dark);
+    --teal-line: var(--accent);
+    --rule: var(--border);
+    --paper: var(--ground-page);
+    --r-box: 2.4mm;
+    --serif: "Cormorant Garamond", Baskerville, "Hoefler Text", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    width: 210mm; height: 297mm; overflow: hidden;
+    padding: 0;
+    font-family: var(--sans); font-size: 7.45pt; line-height: 1.3; color: var(--ink);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    display: flex; flex-direction: column;
+  }
+  p + p { margin-top: 1.3mm; }
+  strong { font-weight: 650; }
+
+  /* Grounds: full-width bands, alternating warm and page, never two neighbours the same. Hairline between. */
+  .ground { flex: none; padding: 2.4mm 12mm; border-bottom: 0.26mm solid var(--border); }
+  .ground--warm { background: var(--ground-warm); }
+  .ground--page { background: var(--ground-page); }
+  .ground--banner { padding: 5.5mm 12mm 2.4mm; }
+  .ground--programme { padding: 2mm 12mm 2.1mm; }
+  .ground--boxes { padding: 2.4mm 12mm; }
+  .ground--team { flex: 1 1 auto; padding: 2.2mm 12mm 2mm; }
+  .ground--mission { padding: 2.2mm 12mm; }
+  .ground--foot { padding: 1.6mm 12mm 5mm; border-bottom: 0; }
+
+  /* Header */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 8mm; }
+  .brand { display: flex; align-items: center; gap: 2.4mm; }
+  .brand svg { width: 7.5mm; height: 7.5mm; display: block; }
+  .wordmark { font-family: var(--sans); font-weight: 600; font-size: 11pt; letter-spacing: 0.01em; }
+  .wordmark span { color: var(--teal-text); }
+  .kicker { font-family: var(--serif); font-style: italic; font-size: 10.5pt; color: var(--muted); text-align: right; max-width: 105mm; line-height: 1.25; text-wrap: balance; }
+
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 25pt; line-height: 1.05; margin-top: 2.8mm; letter-spacing: -0.005em; }
+  .hook { font-family: var(--serif); font-style: italic; font-size: 12.2pt; line-height: 1.28; color: var(--ink); margin-top: 1.4mm; max-width: 172mm; }
+  .hook-rule { border: 0; border-top: 0.35mm solid var(--teal-line); width: 22mm; margin-top: 2.4mm; }
+
+  /* Programme band */
+  .band { margin-top: 0; }
+  .label { font-size: 6.6pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-text); }
+  .band svg { display: block; width: 100%; height: auto; margin-top: 1.4mm; }
+  .band svg rect { fill: var(--box-on-page); rx: 24px; ry: 24px; }
+  .band svg text[fill="#55585c"] { fill: var(--text-muted); }
+
+  /* Six boxes in three columns */
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3.2mm; margin-top: 0; }
+  .col { display: flex; flex-direction: column; gap: 2.8mm; }
+  .box { background: var(--box-on-warm); border: 0.25mm solid var(--rule); border-top: 0.45mm solid var(--teal-line); border-radius: var(--r-box); padding: 2mm 2.7mm 2.2mm; }
+  .box h2 { font-family: var(--serif); font-weight: 600; font-size: 11.6pt; line-height: 1.1; margin: 0.7mm 0 1.2mm; }
+  .box p, .person p { text-wrap: pretty; }
+  .finding { padding-left: 2.2mm; border-left: 0.35mm solid var(--rule); font-size: 7.7pt; }
+  .close { color: var(--muted); font-style: italic; }
+  sup { font-size: 0.66em; line-height: 0; vertical-align: 0.42em; color: var(--teal-text); font-weight: 600; margin-left: 0.2mm; }
+
+  /* Team */
+  .team { margin-top: 0; border-top: 0; padding-top: 0; }
+  .people { display: grid; grid-template-columns: 1.42fr 1fr; gap: 5.5mm; margin-top: 1.2mm; }
+  body[data-team="judith"] .people { grid-template-columns: 1fr; }
+  body[data-team="judith"] .emilian { display: none; }
+  .person h3 { font-family: var(--serif); font-weight: 600; font-size: 12pt; line-height: 1.1; }
+  .person h3 .role { font-family: var(--sans); font-size: 7.6pt; font-weight: 500; color: var(--teal-text); letter-spacing: 0.04em; margin-left: 1.6mm; }
+  .logos { display: flex; align-items: center; gap: 4mm; margin: 1.2mm 0 1.4mm; }
+  .logos + .logos { margin-top: 0; }
+  .logos img { height: 6.4mm; width: auto; display: block; mix-blend-mode: multiply; }
+  .logos img.tall { height: 7.6mm; }
+  .logos img.wide { height: 3.6mm; }
+  .logos img.xwide { height: 3mm; }
+  .logos img.thin { height: 4.3mm; }
+  .creds { font-size: 7.2pt; color: var(--muted); margin: 0.9mm 0 1.3mm; letter-spacing: 0.01em; }
+  .creds b { color: var(--ink); font-weight: 600; }
+  .roles { list-style: none; margin-top: 1.3mm; }
+  .roles li + li { margin-top: 0.4mm; }
+  .roles b { color: var(--teal-text); font-weight: 600; }
+
+  /* Mission */
+  .mission { margin-top: 0; display: grid; grid-template-columns: 1.2mm 1fr; gap: 3.4mm; }
+  .mission .bar { background: var(--teal-line); border-radius: 0.6mm; }
+  .mission blockquote { font-family: var(--serif); font-style: italic; font-size: 10.2pt; line-height: 1.26; }
+  .mission cite { display: block; font-family: var(--sans); font-style: normal; font-size: 6.9pt; color: var(--muted); margin-top: 0.5mm; letter-spacing: 0.03em; }
+
+  /* Footnotes: small, italic, grey, under a rule (the hairline above the page-coloured foot band) */
+  footer { margin-top: 0; border-top: 0; padding-top: 0; }
+  footer .notes { font-size: 6.4pt; line-height: 1.35; color: var(--faint); font-style: italic; }
+  footer .notes span { font-style: normal; font-weight: 600; color: var(--teal-text); margin: 0 0.8mm 0 0; }
+  footer .imprint { margin-top: 1.1mm; display: flex; justify-content: space-between; gap: 6mm; font-size: 7pt; color: var(--muted); }
+  footer .imprint .mail { color: var(--ink); white-space: nowrap; }
+  footer .imprint .mail a { color: #1a5fb4; text-decoration: underline; }
+</style>
+</head>
+<body data-team="both">
+
+<div class="ground ground--warm ground--banner">
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 64 64" role="img" aria-label="Expand Education">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d8b8b"/><stop offset="1" stop-color="#2a6b6b"/></linearGradient></defs>
+      <rect width="64" height="64" rx="14" fill="url(#g)"/>
+      <g transform="translate(10,10) scale(1.375)" fill="#f8f9fc">
+        <path d="m24.63 8.56-6.5 4.8h-4.25l-6.5-4.8H2.35l9.26 6.83c.84.61 1.85.95 2.88.95h3.02c1.04 0 2.05-.33 2.88-.95l9.26-6.83h-5.02Z"/>
+        <path d="m7.34 25.61 6.53-4.8h4.26l6.53 4.8h5.03l-9.3-6.84c-.83-.61-1.84-.94-2.88-.94h-3.03c-1.04 0-2.04.33-2.88.94l-9.29 6.84h5.03Z"/>
+      </g>
+    </svg>
+    <div class="wordmark">Expand <span>Education</span></div>
+  </div>
+  <p class="kicker">We are building programmes that teach leadership as a function of biology.</p>
+</header>
+
+<h1>The Female CEO Operating System</h1>
+<p class="hook">It takes a certain kind of person to get to the top. And it’s usually the kind who wants to stay there. So what happens when the body starts to give out before the ambition does?</p>
+<hr class="hook-rule">
+</div>
+
+<div class="ground ground--page ground--programme">
+<section class="band" aria-label="The programme at a glance">
+  <div class="label">The programme, designed as thirteen weeks online, in three parts</div>
+  <svg viewBox="0 0 1860 150" role="img" aria-label="Part one, her own operating system; part two, the transition windows; part three, the company she leads">
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+      
+      <rect x="2" y="2" width="580" height="146" rx="16" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <circle cx="54" cy="44" r="24" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <text x="54" y="53" text-anchor="middle" font-family="Baskerville, Georgia, serif" font-size="26" font-weight="600" fill="#2a6b6b">I</text>
+      <text x="90" y="54" font-size="31" font-weight="650" fill="#1a1a1a">Her own operating system</text>
+      <text x="30" y="100" font-size="24" fill="#55585c">Hormone biology, sleep, nutrition, data</text>
+      <text x="30" y="131" font-size="24" fill="#55585c">and wearables, training, cognition, environment</text>
+      <path d="M594 75 H 626 M614 63 L 628 75 L 614 87" fill="none" stroke="#3d8b8b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <rect x="640" y="2" width="580" height="146" rx="16" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <circle cx="692" cy="44" r="24" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <text x="692" y="53" text-anchor="middle" font-family="Baskerville, Georgia, serif" font-size="26" font-weight="600" fill="#2a6b6b">II</text>
+      <text x="728" y="54" font-size="31" font-weight="650" fill="#1a1a1a">The transition windows</text>
+      <text x="668" y="100" font-size="24" fill="#55585c">The cycle, perimenopause and menopause,</text>
+      <text x="668" y="131" font-size="24" fill="#55585c">and decisions about hormone therapy</text>
+      <path d="M1232 75 H 1264 M1252 63 L 1266 75 L 1252 87" fill="none" stroke="#3d8b8b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <rect x="1278" y="2" width="580" height="146" rx="16" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <circle cx="1330" cy="44" r="24" fill="none" stroke="#3d8b8b" stroke-width="2.5"/>
+      <text x="1330" y="53" text-anchor="middle" font-family="Baskerville, Georgia, serif" font-size="26" font-weight="600" fill="#2a6b6b">III</text>
+      <text x="1366" y="54" font-size="31" font-weight="650" fill="#1a1a1a">The company she leads</text>
+      <text x="1306" y="100" font-size="24" fill="#55585c">The business case, workplace design, and</text>
+      <text x="1306" y="131" font-size="24" fill="#55585c">a culture that accounts for female biology</text>
+    </g>
+  </svg>
+</section>
+</div>
+
+<div class="ground ground--warm ground--boxes">
+<div class="cols">
+  <div class="col">
+    <section class="box">
+      <div class="label">The problem, and why now</div>
+      <h2>The last chapter, first</h2>
+      <p>Every woman who lives long enough goes through menopause. Every single one, no exceptions. It is not a risk factor and it is not a subgroup: it is the entire female half of a workforce, on a schedule nobody can opt out of. And for the thirty or forty years before it, she is cycling. <strong>Two completely different sets of problems, and neither of them is nothing.</strong></p>
+      <p><strong>Both reach work.</strong> In the UK, 69% of working women with period symptoms say they have had a negative impact at work, and 49% never tell their manager when an absence is period-related.<sup>1</sup></p>
+      <p><strong>And some leave.</strong> 17% of UK working women with menopause symptoms have considered leaving work for lack of support, and a further 6% have left.<sup>2</sup></p>
+      <p>Beneath both run the levers every leader depends on, every day: sleep, energy, focus, judgement.</p>
+      <p>Nearly a third of UK organisations (29%) plan to introduce a menopause policy.<sup>3</sup> A company that has written a menopause policy has addressed the last chapter of a book it hasn’t read.</p>
+    </section>
+  </div>
+
+  <div class="col">
+    <section class="box">
+      <div class="label">What we are building</div>
+      <h2>Biology as technology</h2>
+      <p><strong>The Female CEO Operating System is designed around female biology.</strong></p>
+      <p>Every woman can run her own experiments on her own data: a baseline, one change, a comparison. In one exercise she plans the state she wants to be in for the moments that matter most: a board meeting, an investor meeting, a hiring decision, a redundancy conversation.</p>
+      <p class="close">Education, not clinical care: we describe the evidence and never make a recommendation. What each woman does with it, she decides with her clinician.</p>
+    </section>
+    <section class="box">
+      <div class="label">Who it is for</div>
+      <h2>For women in leadership</h2>
+      <p>Women who run a P&amp;L, lead a whole function or founded their company, and women whose next move is into one of these roles. Self-funded, or paid for by the company they lead.</p>
+      <p><strong>The market:</strong> nearly 15 million women are managers across Europe, the US and the Gulf, and 39 million worldwide.<sup>4</sup> <strong>Our first market:</strong> the UK and continental Europe.</p>
+    </section>
+  </div>
+
+  <div class="col">
+    <section class="box">
+      <div class="label">Where it stands</div>
+      <h2>Close to launch</h2>
+      <p>The learning platform is already built and the curriculum is drafted. <strong>First cohorts are planned for early 2027.</strong></p>
+      <p>The plan: the first cohorts taught live and built with our first clients, then recorded teaching with live Q&amp;A; each extra seat costs almost nothing to deliver.</p>
+      <p>Accepted into the OX1 (Oxford University) and London School of Economics Generate incubators for their 2026/27 cohorts.</p>
+    </section>
+    <section class="box">
+      <div class="label">What the prize would do</div>
+      <h2>Introductions, then reach</h2>
+      <p><strong>Introductions first:</strong> to women in leadership, founders included, for research conversations that shape the programme, and to companies that support the women who work in them and can sponsor their places.</p>
+      <p><strong>Then the money, for reach:</strong> making sure the right women hear about it. The mentoring would sharpen that route.</p>
+    </section>
+  </div>
+</div>
+</div>
+
+<div class="ground ground--page ground--team">
+<section class="team">
+  <div class="label">Who is building it</div>
+  <div class="people">
+    <div class="person judith">
+      <h3>Judith Mueller<span class="role">Founder and CEO</span></h3>
+      <div class="logos"><img src="img/oxford.png" alt="University of Oxford"><img src="img/lse.png" alt="London School of Economics"><img class="tall" src="img/starwood.png" alt="Starwood Capital Group"></div>
+      <p>Economist (London School of Economics, Oxford University) with 20 years across private equity, family offices and entrepreneurship. Nine years as Chief of Staff and Venture Builder to the founder of a €1bn single family office, helping it set up its pan-European private equity business: €6bn transacted in her time. Earlier, a Starwood Capital subsidiary.</p>
+      <ul class="roles">
+        <li><b>In longevity:</b> co-founded Longevity Week Berlin; built events with Google Berlin on longevity start-ups and on women’s health; speaker and moderator at Founders Longevity Forum and Longevity Show London; keynote, <i>How Billionaires Die</i>, Campden Wealth.</li>
+        <li><b>Judge:</b> Women’s Health Horizons London Pitch Competition, Royal College of Obstetricians and Gynaecologists, 2026.</li>
+        <li><b>Host:</b> Biohacking Eve, a podcast that gives a platform to scientists and founders who go deep on women’s health.</li>
+      </ul>
+    </div>
+    
+    <div class="person emilian">
+      <h3>Emilian Popa<span class="role">CTO</span></h3>
+      <div class="logos"><img class="wide" src="img/columbia.png" alt="Columbia Business School"><img src="img/lbs.png" alt="London Business School"><img class="thin" src="img/sciencespo.png" alt="Sciences Po"></div>
+      <div class="logos"><img class="xwide" src="img/rocket.png" alt="Rocket Internet"><img class="wide" src="img/gates.png" alt="Gates Foundation"></div>
+      <p>Serial healthcare entrepreneur. Founded Ilara Health, which brought diagnostics into primary care clinics in Kenya and held a Gates Foundation grant. Earlier, on the founding teams of Rocket Internet ventures. He has built and run longevity clinics in several countries.</p>
+      <p>He built the platform the programme will run on.</p>
+    </div>
+    
+  </div>
+</section>
+</div>
+
+<div class="ground ground--warm ground--mission">
+<section class="mission">
+  <div class="bar"></div>
+  <blockquote>My personal mission is to give one gigayear of healthy lifespan to humanity, by enabling others. That’s why I co-founded Longevity Week Berlin, why I started my podcast, and why I’m building Expand Education: if the people at the top understand their own health, they live healthier lives.
+    <cite>Judith Mueller</cite>
+  </blockquote>
+</section>
+</div>
+
+<div class="ground ground--page ground--foot">
+<footer>
+  <p class="notes"><span>1</span>CIPD, <i>Menstruation and support at work</i>, November 2023: 2,060 UK working women; the 69% among those with menstrual symptoms. <span>2</span>CIPD, <i>Menopause in the workplace</i>, October 2023: UK working women aged 40 to 60 with menopause symptoms, n=1,531. <span>3</span>CIPD and Simplyhealth, <i>Health and wellbeing at work</i>, September 2023: HR and people professionals answering for 918 UK organisations, base 698. <span>4</span>ILO modelled estimates, November 2025, women managers (ISCO-08 group 1), 2025: EU-27, UK, Switzerland, Norway, the US and the six Gulf states; world 38.9 million.</p>
+  <p class="imprint"><span class="who">Expand Education: founded as a venture in 2026; not yet incorporated.</span><span class="mail">Judith Mueller · <a href="mailto:judith@expand.health">judith@expand.health</a></span></p>
+</footer>
+</div>
+
+</body>
+</html>
